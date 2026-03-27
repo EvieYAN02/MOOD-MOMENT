@@ -68,7 +68,7 @@ function drawRoundedRect(
 }
 
 export default function App() {
-  const [mode, setMode] = useState<'Down' | 'Joy' | 'Drift'>('Drift');
+  const [mode, setMode] = useState<'Down' | 'Joy' | 'Drift'>('Down');
   const [text, setText] = useState('');
   const [fontFamily, setFontFamily] = useState('font-sans');
   const [fontSize, setFontSize] = useState('text-[22px]');
