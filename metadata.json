@@ -1,0 +1,5 @@
+{
+  "name": "Mood Moment",
+  "description": "A minimalist text editor with mood-based shader backgrounds.",
+  "requestFramePermissions": []
+}
