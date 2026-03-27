@@ -186,10 +186,10 @@ export default function App() {
       }
     };
 
-    document.addEventListener('mousedown', handlePointerDown);
+    document.addEventListener('pointerdown', handlePointerDown);
     window.addEventListener('keydown', handleKeyDown);
     return () => {
-      document.removeEventListener('mousedown', handlePointerDown);
+      document.removeEventListener('pointerdown', handlePointerDown);
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [isTextSettingsOpen]);
@@ -394,10 +394,13 @@ export default function App() {
       <div className="w-full h-full flex flex-col items-center justify-center p-8 pt-16">
         {/* Editor */}
         <div className="w-full max-w-4xl flex-1 max-h-[64vh] min-h-[48vh] relative group">
-          <div className="absolute left-0 -top-14 z-30">
+          <div className="absolute left-0 -top-14 z-[70]">
             <button
               ref={textSettingsButtonRef}
-              onClick={() => setIsTextSettingsOpen((v) => !v)}
+              onPointerDown={(e) => {
+                e.stopPropagation();
+                setIsTextSettingsOpen((v) => !v);
+              }}
               type="button"
               className={`h-11 min-w-[74px] px-4 rounded-xl border backdrop-blur-xl transition-all duration-300 flex items-center justify-center gap-2 text-xs tracking-widest uppercase shadow-lg cursor-pointer select-none touch-manipulation ${
                 mode === 'Joy'
